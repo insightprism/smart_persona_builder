@@ -15,6 +15,7 @@ from spb_core import (
     validate_categories,
     generate_system_prompt,
     filter_traits_by_context,
+    save_file,
     save_persona,
     load_persona,
     list_personas,
@@ -205,6 +206,26 @@ async def generate_prompt(persona_id: str, context_data: Optional[Dict[str, str]
         raise HTTPException(404, f"Persona {persona_id} not found")
     except Exception as e:
         raise HTTPException(500, f"Error generating prompt: {str(e)}")
+
+@router.post("/{persona_id}/save-prompt")
+async def save_system_prompt(persona_id: str, request_data: Dict[str, Any]) -> Dict[str, str]:
+    """Save system prompt as text file in personas directory"""
+    try:
+        system_prompt = request_data.get("system_prompt")
+        if not system_prompt:
+            raise HTTPException(400, "Missing system_prompt in request")
+
+        # Use the generic save_file function
+        filename = f"{persona_id}.txt"
+        file_path = save_file(system_prompt, filename, PERSONAS_DIR)
+
+        return {
+            "message": "System prompt saved successfully",
+            "file_path": file_path,
+            "persona_id": persona_id
+        }
+    except Exception as e:
+        raise HTTPException(500, f"Error saving system prompt: {str(e)}")
 
 @router.post("/validate")
 async def validate_persona(persona_data: Dict[str, Any]) -> Dict[str, Any]:

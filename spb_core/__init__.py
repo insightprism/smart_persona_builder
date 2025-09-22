@@ -12,6 +12,7 @@ from .prompt_generator import (
     format_trait_block
 )
 from .persona_manager import (
+    save_file,
     save_persona,
     load_persona,
     list_personas,
@@ -30,6 +31,7 @@ __all__ = [
     'generate_system_prompt',
     'filter_traits_by_context',
     'format_trait_block',
+    'save_file',
     'save_persona',
     'load_persona',
     'list_personas',

@@ -6,41 +6,59 @@ from typing import Dict, List, Optional
 from datetime import datetime
 import glob
 
+def save_file(content: str, filename: str, directory: str = "personas") -> str:
+    """Save content to file (generic function for both JSON and text)
+
+    Args:
+        content: The content to save (string)
+        filename: Full filename including extension
+        directory: Directory to save file in
+
+    Returns:
+        Path to the saved file
+
+    Raises:
+        IOError: If file cannot be written
+    """
+    # Create directory if it doesn't exist
+    os.makedirs(directory, exist_ok=True)
+
+    filepath = os.path.join(directory, filename)
+
+    try:
+        with open(filepath, 'w', encoding='utf-8') as f:
+            f.write(content)
+        return filepath
+    except IOError as e:
+        raise IOError(f"Failed to save file to {filepath}: {e}")
+
 def save_persona(persona: Dict, directory: str = "personas") -> str:
     """Save persona to JSON file
-    
+
     Args:
         persona: The persona dictionary to save
         directory: Directory to save personas in
-        
+
     Returns:
         Path to the saved file
-        
+
     Raises:
         ValueError: If persona_id is missing
         IOError: If file cannot be written
     """
     if "persona_id" not in persona:
         raise ValueError("Persona must have a persona_id")
-    
-    # Create directory if it doesn't exist
-    os.makedirs(directory, exist_ok=True)
-    
+
     # Update modified timestamp
     if "metadata" not in persona:
         persona["metadata"] = {}
     persona["metadata"]["modified_at"] = datetime.utcnow().isoformat() + "Z"
-    
-    # Save to file
+
+    # Use generic save function with JSON formatting
     filename = f"{persona['persona_id']}.json"
-    filepath = os.path.join(directory, filename)
-    
-    try:
-        with open(filepath, 'w', encoding='utf-8') as f:
-            json.dump(persona, f, indent=2, ensure_ascii=False)
-        return filepath
-    except IOError as e:
-        raise IOError(f"Failed to save persona to {filepath}: {e}")
+    content = json.dumps(persona, indent=2, ensure_ascii=False)
+
+    return save_file(content, filename, directory)
 
 def load_persona(persona_id: str, directory: str = "personas") -> Dict:
     """Load persona from JSON file
