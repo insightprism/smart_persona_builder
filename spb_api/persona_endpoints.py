@@ -24,7 +24,7 @@ from spb_core import (
 )
 from spb_core.persona_manager import search_personas, export_persona, import_persona
 from spb_core.persona_validator import check_persona_completeness, suggest_missing_traits
-from spb_core.persona_models import VALID_CATEGORIES, merge_personas, clone_persona
+from spb_core.persona_models import VALID_CATEGORIES, CATEGORY_DESCRIPTIONS, merge_personas, clone_persona
 
 router = APIRouter(prefix="/api/personas", tags=["personas"])
 
@@ -40,22 +40,11 @@ async def get_personas() -> List[Dict]:
         raise HTTPException(500, f"Error listing personas: {str(e)}")
 
 @router.get("/categories")
-async def get_valid_categories() -> Dict[str, List[str]]:
+async def get_valid_categories() -> Dict[str, Any]:
     """Get list of valid trait categories"""
     return {
         "categories": VALID_CATEGORIES,
-        "descriptions": {
-            "demographics": "Age, location, gender, family status",
-            "professional": "Occupation, experience, skills, education",
-            "personality": "Temperament, social style, energy level",
-            "communication_style": "Tone, formality, verbosity, humor",
-            "values_beliefs": "Politics, religion, priorities, philosophy",
-            "behavioral_traits": "Decision-making, problem-solving, habits",
-            "capabilities": "Skills, knowledge, expertise areas",
-            "background": "History, experiences, cultural context",
-            "relationships": "Family, friends, social connections",
-            "preferences": "Likes, dislikes, hobbies, interests"
-        }
+        "descriptions": CATEGORY_DESCRIPTIONS
     }
 
 @router.get("/{persona_id}")

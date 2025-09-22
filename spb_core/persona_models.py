@@ -7,7 +7,7 @@ import uuid
 # Valid trait categories - these are validated but contents are flexible
 VALID_CATEGORIES = [
     "demographics",
-    "professional", 
+    "professional",
     "personality",
     "communication_style",
     "values_beliefs",
@@ -17,6 +17,33 @@ VALID_CATEGORIES = [
     "relationships",
     "preferences"
 ]
+
+# Category descriptions with SPB_BASIC_ prefix
+SPB_BASIC_DEMOGRAPHICS = "Age, location, gender, family status"
+SPB_BASIC_PROFESSIONAL = "Occupation, experience, skills, education"
+SPB_BASIC_PERSONALITY = "Temperament, social style, energy level"
+SPB_BASIC_COMMUNICATION_STYLE = "Tone, formality, verbosity, humor"
+SPB_BASIC_VALUES_BELIEFS = "Politics, religion, priorities, philosophy"
+SPB_BASIC_BEHAVIORAL_TRAITS = "Decision-making, problem-solving, habits"
+SPB_BASIC_CAPABILITIES = "Skills, knowledge, expertise areas"
+SPB_BASIC_BACKGROUND = "History, experiences, cultural context"
+SPB_BASIC_RELATIONSHIPS = "Family, friends, social connections"
+SPB_BASIC_PREFERENCES = "Likes, dislikes, hobbies, interests"
+
+# Dictionary mapping categories to their descriptions
+CATEGORY_DESCRIPTIONS = {
+    "demographics": SPB_BASIC_DEMOGRAPHICS,
+    "professional": SPB_BASIC_PROFESSIONAL,
+    "personality": SPB_BASIC_PERSONALITY,
+    "communication_style": SPB_BASIC_COMMUNICATION_STYLE,
+    "values_beliefs": SPB_BASIC_VALUES_BELIEFS,
+    "behavioral_traits": SPB_BASIC_BEHAVIORAL_TRAITS,
+    "capabilities": SPB_BASIC_CAPABILITIES,
+    "background": SPB_BASIC_BACKGROUND,
+    "relationships": SPB_BASIC_RELATIONSHIPS,
+    "preferences": SPB_BASIC_PREFERENCES
+}
+
 
 def create_empty_persona(persona_id: str, name: str, description: str = "", category: str = "general") -> Dict:
     """Create a new empty persona with basic structure
