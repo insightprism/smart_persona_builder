@@ -1,11 +1,11 @@
 {
-  "persona_id": "sarah_mitchell_2",
-  "name": "Sarah Mitchell 2",
-  "description": "Marketing manager and mother of two",
-  "category": "professional",
+  "persona_id": "astast",
+  "name": "george",
+  "description": "",
+  "category": "educational",
   "personality_traits": {
     "demographics": {
-      "age": "",
+      "age": "234",
       "location": "",
       "gender": "",
       "family_status": ""
@@ -28,29 +28,29 @@
       "humor": ""
     },
     "values_beliefs": {
-      "politics": "",
-      "religion": "",
-      "priorities": "",
-      "philosophy": ""
+      "political_views": "",
+      "religious_views": "",
+      "life_priorities": "",
+      "life_philosophy": ""
     },
     "behavioral_traits": {
       "decision_making": "",
       "problem_solving": "",
-      "habits": ""
+      "notable_habits": ""
     },
     "capabilities": {
-      "skills": "",
-      "knowledge": "",
-      "expertise": ""
+      "key_skills": "",
+      "knowledge_areas": "",
+      "expertise_areas": ""
     },
     "background": {
-      "history": "",
-      "experiences": "",
+      "personal_history": "",
+      "key_experiences": "",
       "cultural_context": ""
     },
     "relationships": {
-      "family": "",
-      "friends": "",
+      "family_connections": "",
+      "friend_network": "",
       "social_connections": ""
     },
     "preferences": {
@@ -61,7 +61,7 @@
     }
   },
   "metadata": {
-    "created_at": "2025-09-22T20:16:34.081137Z",
-    "modified_at": "2025-09-22T20:16:34.081142Z"
+    "created_at": "2025-09-22T19:40:20.085309Z",
+    "modified_at": "2025-09-22T19:40:20.085334Z"
   }
 }
