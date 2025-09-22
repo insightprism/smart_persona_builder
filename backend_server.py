@@ -11,8 +11,9 @@ import sys
 # Add the project root to the path
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-# Import our API router
+# Import our API routers
 from spb_api.persona_endpoints import router as persona_router
+from spb_api.llm_endpoints import router as llm_router
 
 # Create FastAPI app
 app = FastAPI(
@@ -42,8 +43,9 @@ os.makedirs(PERSONAS_DIR, exist_ok=True)
 # Set the personas directory in environment
 os.environ["SPB_PERSONAS_DIR"] = PERSONAS_DIR
 
-# Include the persona routes
+# Include the API routes
 app.include_router(persona_router)
+app.include_router(llm_router)
 
 # Root endpoint
 @app.get("/")
@@ -82,7 +84,10 @@ async def get_info():
             "/api/personas/validate",
             "/api/personas/search",
             "/api/personas/{id}/export",
-            "/api/personas/import"
+            "/api/personas/import",
+            "/api/llm/generate",
+            "/api/llm/providers",
+            "/api/llm/test"
         ]
     }
 
