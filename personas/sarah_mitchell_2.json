@@ -1,6 +1,6 @@
 {
-  "persona_id": "sarah_mitchell",
-  "name": "Sarah Mitchell",
+  "persona_id": "sarah_mitchell_2",
+  "name": "Sarah Mitchell 2",
   "description": "Marketing manager and mother of two",
   "category": "professional",
   "personality_traits": {
@@ -38,8 +38,8 @@
     "max_tokens": 2000
   },
   "metadata": {
-    "created_at": "2025-09-21T19:29:05.052690Z",
-    "modified_at": "2025-09-22T02:11:06.630264Z",
+    "created_at": "2025-09-22T02:11:33.480117Z",
+    "modified_at": "2025-09-22T02:11:33.480162Z",
     "version": "1.0.0"
   }
 }
