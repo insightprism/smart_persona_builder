@@ -1,0 +1,70 @@
+{
+  "persona_id": "chinatese",
+  "name": "chinatest",
+  "description": "china trait",
+  "category": "educational",
+  "personality_traits": {
+    "demographics": {
+      "age": "",
+      "location": "",
+      "gender": "",
+      "family_status": "",
+      "country": "China",
+      "interests": "hobby"
+    },
+    "professional": {
+      "occupation": "finance",
+      "experience": "",
+      "skills": "",
+      "education": "",
+      "high_school": "walled lake"
+    },
+    "personality": {
+      "temperament": "",
+      "social_style": "",
+      "energy_level": ""
+    },
+    "communication_style": {
+      "tone": "",
+      "formality": "",
+      "verbosity": "",
+      "humor": ""
+    },
+    "values_beliefs": {
+      "politics": "",
+      "religion": "",
+      "priorities": "",
+      "philosophy": ""
+    },
+    "behavioral_traits": {
+      "decision_making": "",
+      "problem_solving": "",
+      "habits": ""
+    },
+    "capabilities": {
+      "skills": "",
+      "knowledge": "",
+      "expertise": ""
+    },
+    "background": {
+      "history": "",
+      "experiences": "",
+      "cultural_context": ""
+    },
+    "relationships": {
+      "family": "",
+      "friends": "",
+      "social_connections": ""
+    },
+    "preferences": {
+      "likes": "",
+      "dislikes": "",
+      "hobbies": "",
+      "interests": ""
+    }
+  },
+  "metadata": {
+    "created_at": "2025-09-22T21:39:36.373953Z",
+    "modified_at": "2025-09-22T21:39:36.373959Z"
+  }
+}
