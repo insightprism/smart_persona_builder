@@ -48,6 +48,20 @@ async def get_valid_categories() -> Dict[str, Any]:
         "descriptions": CATEGORY_DESCRIPTIONS
     }
 
+@router.get("/default-prompt")
+async def get_default_prompt() -> Dict[str, str]:
+    """Get the default persona generation prompt"""
+    try:
+        prompt_file = os.path.join(PERSONAS_DIR, "generate_person_json.txt")
+        if os.path.exists(prompt_file):
+            with open(prompt_file, 'r', encoding='utf-8') as f:
+                prompt_content = f.read()
+            return {"prompt": prompt_content}
+        else:
+            return {"prompt": "You are an expert AI persona designer specializing in creating comprehensive, realistic character profiles in JSON format."}
+    except Exception as e:
+        raise HTTPException(500, f"Error reading default prompt: {str(e)}")
+
 @router.get("/{persona_id}")
 async def get_persona(persona_id: str) -> Dict:
     """Get a specific persona"""
